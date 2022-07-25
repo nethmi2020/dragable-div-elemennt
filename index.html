@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drggable Div Element</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>Drggable DIV</header>
+        <div class="content">
+            <img src="drag.png" alt="">
+
+            <div class="title">Drggable Div</div>
+            <p>This is a Drggable Div Element.
+                Create without limits
+                Gain access to over 7,754,500 icons in formats  SVG, EPS, PSD, & BASE64
+                Download whatever, cancel whenever
+                Go premium
+            </p>
+
+        </div>
+        
+    </div>
+</body>
+<script >
+
+const wrapper= document.querySelector(".wrapper"),
+header=wrapper.querySelector("header");
+
+
+
+
+
+function onDrag({movementX,movementY}){
+
+    let getStyle=window.getComputedStyle(wrapper);
+    let left=parseInt(getStyle.left);
+    let top=parseInt(getStyle.top);
+    wrapper.style.left =  `${left + movementX}px`;
+    wrapper.style.top =  `${top + movementY}px`;
+}
+header.addEventListener("mousedown", ()=>{
+
+    header.addEventListener("mousemove", onDrag);
+});
+
+</script>
+</html>
